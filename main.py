@@ -27,3 +27,4 @@ while 1:
     # task -= 1
 
 print('Bye!')
+print('Bankai')
