@@ -10,8 +10,15 @@ while 1:
     # it is the decision-making
     match user_prompt:
         case 'add':
-            todo = input('Enter the todo: ')
+            todo = input('Enter the todo: ') + '\n'
+            file = open('todos.txt','r')
+            todos = file.readlines()
             todos.append(todo.title())
+            # data is stored into the text file
+            file = open('todos.txt','w') # open is used to open the file
+            # 'w' is used to write the text and 'r' is used to read
+            file.writelines((todos))
+            # old data is removed
         case 'show' | 'display':
             for index,item in enumerate(todos):
                 print(f"{index+1}. {item.capitalize()}")
