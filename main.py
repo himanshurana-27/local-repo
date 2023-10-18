@@ -11,16 +11,16 @@ while 1:
     match user_prompt:
         case 'add':
             todo = input('Enter the todo: ') + '\n'
-            file = open('todos.txt','r')
+            file = open('files/subfile/todos.txt', 'r')
             todos = file.readlines()
             todos.append(todo.title())
             # data is stored into the text file
-            file = open('todos.txt','w') # open is used to open the file
+            file = open('files/subfile/todos.txt', 'w') # open is used to open the file
             # 'w' is used to write the text and 'r' is used to read
             file.writelines((todos))
             # old data is removed
         case 'show' | 'display':
-            file = open('todos.txt','r')
+            file = open('files/subfile/todos.txt', 'r')
             todos = file.readlines()
             file.close()
 
@@ -38,7 +38,7 @@ while 1:
             number = int(input("Number of the todo to complete: "))
             todos.pop(number-1)
         case whatever:  # this whatever displays when you enter the unknown value in the user_prompt
-            print('Hey, you enter the unknown command')
+            print('Hey, you ent     er the unknown command')
     # task -= 1
 
 print('Bye!')
