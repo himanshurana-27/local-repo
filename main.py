@@ -20,8 +20,13 @@ while 1:
             file.writelines((todos))
             # old data is removed
         case 'show' | 'display':
+            file = open('todos.txt','r')
+            todos = file.readlines()
+            file.close()
+
             for index,item in enumerate(todos):
                 print(f"{index+1}. {item.capitalize()}")
+
         case 'edit':
             number = int(input("Number of the todo to edit: "))  # here, int is used to convert the input str to int
             number = number - 1
