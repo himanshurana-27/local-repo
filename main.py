@@ -15,7 +15,7 @@ while 1:
             todos = file.readlines()
             todos.append(todo.title())
             # data is stored into the text file
-            file = open('files/subfile/todos.txt', 'w') # open is used to open the file
+            file = open('files/subfile/todos.txt', 'w')  # open is used to open the file
             # 'w' is used to write the text and 'r' is used to read
             file.writelines((todos))
             # old data is removed
@@ -23,9 +23,19 @@ while 1:
             file = open('files/subfile/todos.txt', 'r')
             todos = file.readlines()
             file.close()
+            new_todo = []
+            for item in todos:
+                # here, removing the extra '\n'
+                # strip command is used to remove the extra \n of the code
+                new_item = item.strip('\n')
+                new_todo.append(new_item)
 
-            for index,item in enumerate(todos):
-                print(f"{index+1}. {item.capitalize()}")
+            # here, all this code can be written in the single statement
+            new_todos = [item.strip('\n') for item in todos] # this is the list comprehesion
+
+            for index, item in enumerate(new_todos):
+
+                print(f"{index + 1}. {item.capitalize()}")
 
         case 'edit':
             number = int(input("Number of the todo to edit: "))  # here, int is used to convert the input str to int
@@ -36,9 +46,9 @@ while 1:
             break
         case 'complete':
             number = int(input("Number of the todo to complete: "))
-            todos.pop(number-1)
+            todos.pop(number - 1)
         case whatever:  # this whatever displays when you enter the unknown value in the user_prompt
             print('Hey, you ent     er the unknown command')
-    # task -= 1
+
 
 print('Bye!')
